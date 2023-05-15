@@ -201,7 +201,7 @@ const getAnime = async () => {
 
   // API URI
   const api = `https://api.jikan.moe/v4/anime?q=${inputEl.value}&sfw`;
-  console.log(api);
+  // console.log(api);
   try {
     const response = await fetch(api);
     const animeList = await response.json();
