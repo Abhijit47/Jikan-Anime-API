@@ -152,7 +152,6 @@ appendChild(paginationNav, paginationUl);
 
 // create 5 li with anchor tag
 const createLi = (count) => {
-  console.log(count);
   for (let i = 1; i <= count; i++) {
     const li = document.createElement("li");
     const liClass = ["page-item"];
@@ -194,6 +193,9 @@ const getAnime = async () => {
     toastMsgContainer.classList.toggle('show');
     toastHeading.innerHTML = "Please type one Anime name";
     toastBody.innerHTML = "Without query you can't get any result";
+    // Show the pagination and footer button
+    paginationSection.classList.remove("show");
+    bottomBtn.classList.remove("show");
     return;
   };
 
@@ -209,6 +211,9 @@ const getAnime = async () => {
       toastMsgContainer.classList.toggle('show');
       toastHeading.innerHTML = "There is no anime that your query";
       toastBody.innerHTML = "Please search Again!";
+      // Show the pagination and footer button
+      paginationSection.classList.remove("show");
+      bottomBtn.classList.remove("show");
     }
     // Input field value clear
     inputEl.value = "";
@@ -236,6 +241,10 @@ const displayData = (animeList) => {
     });
 
     // console.log(genreList.slice(0));
+
+    // Show the pagination and footer button
+    paginationSection.classList.add("show");
+    bottomBtn.classList.add("show");
 
     // Create cards
     cardSection.innerHTML += `
@@ -266,10 +275,10 @@ const displayData = (animeList) => {
         </div>
       </div>
     `;
-
     // Show the pagination and footer button
-    paginationSection.classList.toggle("show");
-    bottomBtn.classList.toggle("show");
+    // paginationSection.classList.remove("show");
+    // bottomBtn.classList.remove("show");
+
   });
 };
 displayData();
